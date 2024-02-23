@@ -5,11 +5,13 @@ import random
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
+PINK = (252, 66, 255)
 
 WIDTH = 800
 HEIGHT = 800
 
-main_dots = [(200, 200), (-200, 0), (0, -200)]
+# main_dots = [(200, 200), (-200, 0), (0, -200)]
+main_dots = [(200, 200), (-200, 200), (0, -200)]
 dots = []  # list that will contain all the dots except for the main 3
 
 
@@ -22,7 +24,7 @@ def adjust(x, y):
 
 def draw_dots(dot):
     x, y = adjust(dot[0], dot[1])
-    pygame.draw.circle(surface=screen, color=RED, center=(x, y), radius=1)
+    pygame.draw.circle(surface=screen, color=PINK, center=(x, y), radius=1)
 
 
 def first_dot():
@@ -54,7 +56,7 @@ def main_loop(screen, clock):
         draw_dots(dots[-1])
 
         pygame.display.update()
-        clock.tick(60)
+        clock.tick(1)
 
 
 if __name__ == "__main__":
