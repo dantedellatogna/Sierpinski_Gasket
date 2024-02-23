@@ -30,7 +30,7 @@ def draw_dots(dot):
 def first_dot():
     # randomly choosing the position of the initial dot
     random_x = random.randint(0, WIDTH)
-    random_y = random.randint(0, HEIGHT)
+    random_y = random.randint(41, HEIGHT)
     return (random_x, random_y)
 
 
@@ -44,6 +44,14 @@ def new_dot():
 
     return (x, y)
 
+def display_text():
+    rect=pygame.Rect(0, 0, 800, 40)
+    pygame.draw.rect(surface=screen, color=WHITE, rect=rect)
+    font = pygame.font.SysFont('Arial', 36)
+    dot_count = len(dots)
+    txt = font.render(f"Dots: {dot_count}", True, BLACK)
+    screen.blit(txt,(0, 0))
+
 
 def main_loop(screen, clock):
     while True:
@@ -54,9 +62,10 @@ def main_loop(screen, clock):
 
         dots.append(new_dot())
         draw_dots(dots[-1])
+        display_text()
 
         pygame.display.update()
-        clock.tick(1)
+        clock.tick(60)
 
 
 if __name__ == "__main__":
