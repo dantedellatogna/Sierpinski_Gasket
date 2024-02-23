@@ -44,13 +44,16 @@ def new_dot():
 
     return (x, y)
 
+
 def display_text():
-    rect=pygame.Rect(0, 0, 800, 40)
+    # we generate a white rectangle that will be drawn in each step and will work as a background for the text
+    rect = pygame.Rect(0, 0, 800, 40)
     pygame.draw.rect(surface=screen, color=WHITE, rect=rect)
-    font = pygame.font.SysFont('Arial', 36)
-    dot_count = len(dots)
-    txt = font.render(f"Dots: {dot_count}", True, BLACK)
-    screen.blit(txt,(0, 0))
+
+    # dot counter that will be updated in each step
+    font = pygame.font.SysFont("Arial", 36)
+    txt = font.render(f"Dots: {len(dots)}", True, BLACK)
+    screen.blit(txt, (0, 0))
 
 
 def main_loop(screen, clock):
